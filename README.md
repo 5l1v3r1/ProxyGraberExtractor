@@ -10,7 +10,7 @@ pip --version: pip 9.0.1 from /usr/lib/python3.6/site-packages (python 3.6)
 
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 $$ How to install PhantomJS $$
-$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 download from phantomjs website the prebuilt package : http://phantomjs.org/download.html 
 then open a terminal and go to the Downloads folder;
 
@@ -19,11 +19,6 @@ then open a terminal and go to the Downloads folder;
 [phantasmlab@localhost Desktop]$ sudo tar xjf phantomjs-1.8.1-linux-x86_64.tar.bz2
 [phantasmlab@localhost Desktop]$ sudo ln -s /usr/local/share/phantomjs-1.8.1-linux-x86_64 /usr/local/share/phantomjs
 [phantasmlab@localhost Desktop]$ sudo ln -s /usr/local/share/phantomjs/bin/phantomjs /usr/local/bin/phantomjs
-#########################################################################################################################
-
-
-
-#############################################################
 
 ############
 ## Ubuntu ##
