@@ -24,17 +24,16 @@ then open a terminal and go to the Downloads folder;
 
 [phantasmlab@localhost Desktop]$ sudo ln -s /usr/local/share/phantomjs/bin/phantomjs /usr/local/bin/phantomjs
 
-############
-## Ubuntu ##
-############
+
+# Ubuntu 
+
 $ sudo apt-get install phantomjs
 
 
 $ sudo cp /path/to/phantomjs/bin/phantomjs /usr/local/bin/
 
-#################
-## Arch Linux ##
-###############
+# Arch Linux
+
 $ su pacman -S phantomjs
 
 
