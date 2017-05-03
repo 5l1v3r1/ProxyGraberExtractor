@@ -1,5 +1,5 @@
 # ProxyGraberExtractor
-Proxys extractor, by country, Scraping using BeautfoulSoup and PhantomJS and Selenium.
+Proxys extractor, by country, Scraping using BeautifulSoup and PhantomJS and Selenium.
 
 # Instalation and Dependences...
 [*] Instalation Manual
