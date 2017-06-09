@@ -4,6 +4,12 @@ import os
 import time, datetime
 import sys
 try:
+	import urllib
+except:
+	print 'pip install urllib'
+	
+from time import gmtime, strftime
+try:
 	from selenium import webdriver
 	from selenium.webdriver.common.keys import Keys
 except:
@@ -92,7 +98,7 @@ $$\   $$ $$ |     $$ |    $$  __$$ $$ |  $$ $$ |  $$ $$   ____$$ |
 
 print(verde+Scrapper)
 fastprint(B+'Use ProxyCrawl3d.py -h or --help\n')
-input(C+'[*] Press Any Key To Continue...')
+raw_input(C+'[*] Press Any Key To Continue...')
 
 #############################################################
 PhantomJS_Others_OS = """
@@ -559,13 +565,175 @@ def Scraping():
 	driver.find_element_by_tag_name('body').send_keys(Keys.COMMAND + 't')
 	driver.close()
 	print('')
-	input(R+t+B+"[*] Press Any Key To Exit...")
-	fastprint('\n [*] Exiting.......')
-	print('')
-	sys.exit()	
+	raw_input(R+t+B+"[*] Press Any Key To Continue...")
+	fastprint('\n [*] Next New Grabber.......')
+	print('')	
 #################################################################################################
+
+def ScrapperList():
+	def isnum(ch):
+		if ch == "0":
+			return True
+		if ch == "1":
+			return True
+		if ch == "2":
+			return True
+		if ch == "3":
+			return True
+		if ch == "4":
+			return True
+		if ch == "5":
+			return True
+		if ch == "6":
+			return True
+		if ch == "7":
+			return True
+		if ch == "8":
+			return True
+		if ch == "9":
+			return True
+		return False
+		
+	def alfabetcheck(line):
+		sw = False
+		if "a" in line:
+			sw = True
+		if "b" in line:
+			sw = True
+		if "c" in line:
+			sw = True
+		if "d" in line:
+			sw = True
+		if "e" in line:
+			sw = True
+		if "f" in line:
+			sw = True
+		if "g" in line:
+			sw = True
+		if "h" in line:
+			sw = True
+		if "i" in line:
+			sw = True
+		if "j" in line:
+			sw = True
+		if "k" in line:
+			sw = True
+		if "l" in line:
+			sw = True
+		if "m" in line:
+			sw = True
+		if "n" in line:
+			sw = True
+		if "o" in line:
+			sw = True
+		if "p" in line:
+			sw = True
+		if "q" in line:
+			sw = True
+		if "r" in line:
+			sw = True
+		if "s" in line:
+			sw = True
+		if "t" in line:
+			sw = True
+		if "u" in line:
+			sw = True
+		if "v" in line:
+			sw = True
+		if "w" in line:
+			sw = True
+		if "x" in line:
+			sw = True
+		if "y" in line:
+			sw = True
+		if "z" in line:
+			sw = True
+		if sw == True:
+			return False
+		else:
+			return True
+			
+	def writetofile(lines):
+		for line in lines:
+			wfile.write(line + "\n")
+
+	def process	(source):
+		proxys = []
+		templist = []
+		temp = ""
+		
+		for line in source:
+			temp += line
+			
+		z = 0
+		prt1 = ""
+		prt2 = ""
+		for itm in temp:
+			if ":" in itm:
+				prt1 = temp[z - 15:z]
+				prt2 = temp[z:z + 6]
+				templist.append(prt1 + prt2)
+			z += 1
+				
+		for line in templist:
+			if alfabetcheck(line):
+				proxys.append(line)
+				
+		x = 0
+		for line in proxys:
+			temp = ""
+			for itm in line:
+				if isnum(itm) or itm == "." or itm == ":":
+					temp += itm
+					proxys[x] = temp
+			x += 1
+		return proxys
+		
+
+	urls = ["http://proxy-list.org/english/index.php",
+			"http://proxy-list.org/english/index.php?p=2",
+			"http://www.samair.ru/proxy/",
+			"http://spys.ru/free-proxy-list/ZA/",
+			"http://spys.ru/en/http-proxy-list/",
+			"http://www.ip-adress.com/proxy_list/",
+			"http://nntime.com/proxy-ip-01.htm",
+			"http://proxy-ip-list.com/"]
+			
+	for c in range(2, 11):
+		urls.append("http://proxy-list.org/english/index.php?p=" + str(c))
+	for c in range(2,31):
+		if c < 10:
+			urls.append("http://www.samair.ru/proxy/proxy-0" + str(c) + ".htm")
+		else:
+			urls.append("http://www.samair.ru/proxy/proxy-" + str(c) + ".htm")
+			
+
+	timestamp = strftime("%d, %b, %Y, %H, %M, %S", gmtime())
+	wfile = open("proxies" + timestamp + ".txt","w")
+
+	proxycount = 0
+	for x in range(len(urls)):
+		proxies = []
+		response = urllib.urlopen(urls[x])
+		print ''
+		print R+t+B+"[+] URL Found Scraping: " + urls[x]
+		print ''
+		html = response.read()
+		response.close()
+		proxies += process(html)
+		writetofile(proxies)
+		proxycount += len(proxies)
+
+		for proxy in proxies:
+			print verde+proxy	
+	print R+t+cyanClaro+"Proxies Scraper Found: " + str(proxycount)	
+	wfile.close()
+
+
 try:
 	Scraping()
+	time.sleep(2)
+	ScrapperList()
 except KeyboardInterrupt:
 	print('')
 	fastprint(R+t+amarelo+"[*] Saindo....")
